@@ -108,11 +108,11 @@ int main() {
 #define TAM_COR 10
 
 //===========definição da struct==========
-struct  {
+typedef struct {
     char nome [30];
     char cor [10];
     int tropas;
-}Territorio;
+}territorio;
 
 
 //============função para limpar o buffer de entrada==============
@@ -120,3 +120,23 @@ void LimparBufferDeEntrada() {
     int c;
     while ((c = getchar()) != '\n' && c != EOF);
 
+//função main
+
+int main() {
+
+struct territorio [TAM_NOME];
+int tropas = 0;
+int opçao
+
+//===menu====
+do 
+{ ///menu de opçoes====}
+printf ("Vamos cadastrar os 5 territórios iniciais do nosso mundo.
+/n");
+  
+
+
+ 
+
+return 0;
+}
