@@ -100,43 +100,47 @@ int main() {
 //===========================
 
 #include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
 
-//=======constantes globais========
-#define TAM_NOME 30
-#define TAM_COR 10
-
-//===========definição da struct==========
+// Definição da struct Territorio
 typedef struct {
-    char nome [30];
-    char cor [10];
+    char nome[50];
+    char corExercito[20];
     int tropas;
-}territorio;
-
-
-//============função para limpar o buffer de entrada==============
-void LimparBufferDeEntrada() {
-    int c;
-    while ((c = getchar()) != '\n' && c != EOF);
-
-//função main
+} Territorio;
 
 int main() {
+    Territorio mapa[5]; 
 
-struct territorio [TAM_NOME];
-int tropas = 0;
-int opçao
+    printf("=== CADASTRO DE TERRITORIOS ===\n\n");
 
-//===menu====
-do 
-{ ///menu de opçoes====}
-printf ("Vamos cadastrar os 5 territórios iniciais do nosso mundo.
-/n");
-  
+    // Leitura dos dados de cada território
+    for (int i = 0; i < 5; i++) {
+        printf("Território %d:\n", i + 1);
 
+        printf("Nome do território: ");
+        fgets(mapa[i].nome, sizeof(mapa[i].nome), stdin);
+        mapa[i].nome[strcspn(mapa[i].nome, "\n")] = '\0'; // Remove o '\n'
 
- 
+        printf("Cor do exército: ");
+        fgets(mapa[i].corExercito, sizeof(mapa[i].corExercito), stdin);
+        mapa[i].corExercito[strcspn(mapa[i].corExercito, "\n")] = '\0';
 
-return 0;
-}
+        printf("Número de tropas: ");
+        scanf("%d", &mapa[i].tropas);
+        getchar(); // limpa o '\n' deixado pelo scanf
+
+        printf("\n");
+    }
+
+    // Exibição dos dados cadastrados
+    printf("=== ESTADO ATUAL DO MAPA ===\n\n");
+    for (int i = 0; i < 5; i++) {
+        printf("Território %d:\n", i + 1);
+        printf("  Nome: %s\n", mapa[i].nome);
+        printf("  Cor do Exército: %s\n", mapa[i].corExercito);
+        printf("  Tropas: %d\n", mapa[i].tropas);
+        printf("-----------------------------\n");
+    }
+
+    return 0;
