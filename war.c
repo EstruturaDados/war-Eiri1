@@ -96,3 +96,27 @@ int main() {
 
 // limparBufferEntrada():
 // Função utilitária para limpar o buffer de entrada do teclado (stdin), evitando problemas com leituras consecutivas de scanf e getchar.
+
+//===========================
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+//=======constantes globais========
+#define TAM_NOME 30
+#define TAM_COR 10
+
+//===========definição da struct==========
+struct  {
+    char nome [30];
+    char cor [10];
+    int tropas;
+}Territorio;
+
+
+//============função para limpar o buffer de entrada==============
+void LimparBufferDeEntrada() {
+    int c;
+    while ((c = getchar()) != '\n' && c != EOF);
+
